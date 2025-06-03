@@ -7,17 +7,17 @@ import { Link } from 'react-router-dom';
 const bannerImages = [
   {
     url: banner1,
-    title: 'Elegance Woven in Modesty TEST',
+    title: 'Elegance Woven in Modesty INDIA',
     subtitle: 'Timeless Hijabs for the Modern You'
   },
   {
     url: banner2,
-    title: 'Style with Purpose, Grace with Abya TEST',
+    title: 'Style with Purpose, Grace with Abya INDIA',
     subtitle: 'Where Fashion Meets Faith'
   },
   {
     url: 'https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&q=80&w=1920&h=600',
-    title: 'Your Hijab. Your Style. Your Identity TEST',
+    title: 'Your Hijab. Your Style. Your Identity INDIA',
     subtitle: 'Celebrate Modesty with Confidence'
   }
 ];
