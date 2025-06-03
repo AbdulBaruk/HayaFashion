@@ -1,0 +1,31 @@
+name: Deploy React App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan 82.29.161.36 >> ~/.ssh/known_hosts
+
+      - name: Deploy to Server
+        run: |
+          ssh root@82.29.161.36 << 'EOF'
+            cd /var/www/HayaFashion
+            git pull origin main
+            npm install
+            npm run build
+            systemctl restart nginx
+          EOF
